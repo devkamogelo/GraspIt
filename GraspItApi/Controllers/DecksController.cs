@@ -35,7 +35,7 @@ public class DecksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateDeck(DeckRequestDto request)
+    public async Task<IActionResult> CreateDeck([FromBody] DeckRequestDto request)
     {
         Deck deck = new Deck
         {
