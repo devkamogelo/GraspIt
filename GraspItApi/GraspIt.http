@@ -1,0 +1,6 @@
+@GraspIt_HostAddress = http://localhost:5223
+
+GET {{GraspIt_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
