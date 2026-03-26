@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Analytics } from '@vercel/analytics'
+import { Analytics } from "@vercel/analytics/next"
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -110,7 +110,7 @@ function App() {
               </a>
             </li>
           </ul>
-        </div>
+        </div>import { Analytics } from "@vercel/analytics/next"
       </section>
 
       <div className="ticks"></div>
