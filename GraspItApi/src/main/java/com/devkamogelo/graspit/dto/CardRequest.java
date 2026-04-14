@@ -1,12 +1,12 @@
 package com.devkamogelo.graspit.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
-public class LoginRequest {
+@Getter
+public class CardRequest {
     @NotBlank
-    private String username;
+    private String question;
     @NotBlank
-    private String password;
+    private String answer;
 }

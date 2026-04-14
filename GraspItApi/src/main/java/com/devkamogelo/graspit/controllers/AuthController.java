@@ -6,6 +6,7 @@ import com.devkamogelo.graspit.dto.RegisterRequest;
 import com.devkamogelo.graspit.models.User;
 import com.devkamogelo.graspit.repository.UserRepository;
 import com.devkamogelo.graspit.security.JwtUtil;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,7 +27,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> registerUser(@RequestBody RegisterRequest request){
+    public ResponseEntity<AuthResponse> registerUser(@RequestBody @Valid RegisterRequest request){
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -40,7 +41,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> loginUser(@RequestBody LoginRequest request){
+    public ResponseEntity<AuthResponse> loginUser(@RequestBody @Valid LoginRequest request){
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         String token = jwtUtil.generateToken(request.getUsername());
         AuthResponse response = new AuthResponse();
